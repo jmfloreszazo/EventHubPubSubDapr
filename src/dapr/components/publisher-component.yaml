@@ -1,43 +1,26 @@
-#apiVersion: dapr.io/v1alpha1
-#kind: Component
-#metadata:
-#  name: pub-microservice
-#spec:
-#  type: pubsub.azure.eventhubs
-#  version: v1  
-#  metadata:
-#  - name: connectionString
-#    secretKeyRef:
-#      name: publisher.ehConnectionString
-#      key: publisher.ehConnectionString
-#  - name: storageAccountName
-#    secretKeyRef:
-#      name: common.storageAccountName
-#      key: common.storageAccountName
-#  - name: storageAccountKey
-#    secretKeyRef:
-#      name: common.storageAccountKey
-#      key: common.storageAccountKey    
-#  - name: storageContainerName
-#    secretKeyRef:
-#      name: common.storageContainerName
-#      key: common.storageContainerName        
-#auth:
-#  secretStore: secret-local-store
-
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: pubisher-microservice
+ name: pub-microservice
 spec:
-  type: pubsub.azure.eventhubs
-  version: v1  
-  metadata:
-  - name: connectionString
-    value: "Endpoint=sb://mydaprdemonamespace.servicebus.windows.net/;SharedAccessKeyName=send;SharedAccessKey=JoIp2bYQ7O74M0pI3Mp4Tf6r42I4GOaQMH1R6Wcc9q0=;EntityPath=mydaprdemoeventhub"
-  - name: storageAccountName
-    value: "mydaprdemostorageaccount"
-  - name: storageAccountKey
-    value: "dsUOeF+4+vzUtE3XwGYrAF0JaE+uTbCrRYSpof8ooOhh/1SVWiChpj0OFyGvJhjesNTfrIjFVWovXtFBvbzisA=="
-  - name: storageContainerName
-    value: "mydaprdemostoragecontainer"
+ type: pubsub.azure.eventhubs
+ version: v1  
+ metadata:
+ - name: connectionString
+   secretKeyRef:
+     name: pub:ehConnectionString
+     key: pub:ehConnectionString
+ - name: storageAccountName
+   secretKeyRef:
+     name: common:storageAccountName
+     key: common:storageAccountName
+ - name: storageAccountKey
+   secretKeyRef:
+     name: common:storageAccountKey
+     key: common:storageAccountKey    
+ - name: storageContainerName
+   secretKeyRef:
+     name: common:storageContainerName
+     key: common:storageContainerName        
+auth:
+ secretStore: secret-local-store

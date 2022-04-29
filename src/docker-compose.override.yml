@@ -6,7 +6,7 @@ services:
    environment:
       - ASPNETCORE_ENVIRONMENT=Development
    ports:
-      - "50001:50001"
+      - "60001:50001"
 
   pub-microservice-dapr:
     command: ["./daprd",
@@ -17,17 +17,17 @@ services:
     volumes:
       - "./dapr/components/:/components"
 
-  sub-microservice:
-   environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-   ports:
-      - "50002:50001"
+  #sub-microservice:
+  # environment:
+  #    - ASPNETCORE_ENVIRONMENT=Development
+  # ports:
+  #    - "60002:50001"
 
-  sub-microservice-dapr:
-    command: ["./daprd",
-      "-app-id", "subscriptor",
-      "-app-port", "80",
-      "-components-path", "/components"      
-      ]
-    volumes:
-      - "./dapr/components/:/components"
+  #sub-microservice-dapr:
+  #  command: ["./daprd",
+  #    "-app-id", "subscriptor",
+  #    "-app-port", "80",
+  #    "-components-path", "/components"      
+  #    ]
+  #  volumes:
+  #    - "./dapr/components/:/components"
