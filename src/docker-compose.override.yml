@@ -10,7 +10,7 @@ services:
 
   pub-microservice-dapr:
     command: ["./daprd",
-      "-app-id", "pubisher",
+      "-app-id", "publisher",
       "-app-port", "80",
       "-components-path", "/components"      
       ]
