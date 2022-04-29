@@ -1,43 +1,26 @@
-#apiVersion: dapr.io/v1alpha1
-#kind: Component
-#metadata:
-#  name: subscriptor
-#spec:
-#  type: pubsub.azure.eventhubs
-#  version: v1  
-#  metadata:
-#  - name: connectionString
-#    secretKeyRef:
-#      name: subscriptor.ehConnectionString
-#      key: subscriptor.ehConnectionString
-#  - name: storageAccountName
-#    secretKeyRef:
-#      name: common.storageAccountName
-#      key: common.storageAccountName
-#  - name: storageAccountKey
-#    secretKeyRef:
-#      name: common.storageAccountKey
-#      key: common.storageAccountKey    
-#  - name: storageContainerName
-#    secretKeyRef:
-#      name: common.storageContainerName
-#      key: common.storageContainerName        
-#auth:
-#  secretStore: secret-local-store
-
-#apiVersion: dapr.io/v1alpha1
-#kind: Component
-#metadata:
-#  name: subscriptor-microservice
-#spec:
-#  type: pubsub.azure.eventhubs
-#  version: v1  
-#  metadata:
-#  - name: connectionString
-#    value: "Endpoint=sb://mydaprdemonamespace.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=RXE3QO+PJQ8jlbKMEr/MyodRXh8pJaRlSispzdVJ75o=;EntityPath=mydaprdemoeventhub"
-#  - name: storageAccountName
-#    value: "mydaprdemostorageaccount"
-#  - name: storageAccountKey
-#    value: "dsUOeF+4+vzUtE3XwGYrAF0JaE+uTbCrRYSpof8ooOhh/1SVWiChpj0OFyGvJhjesNTfrIjFVWovXtFBvbzisA=="
-#  - name: storageContainerName
-#    value: "mydaprdemostoragecontainer"  
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+ name: sub-microservice
+spec:
+ type: pubsub.azure.eventhubs
+ version: v1  
+ metadata:
+ - name: connectionString
+   secretKeyRef:
+     name: sub:ehConnectionString
+     key: sub:ehConnectionString
+ - name: storageAccountName
+   secretKeyRef:
+     name: common:storageAccountName
+     key: common:storageAccountName
+ - name: storageAccountKey
+   secretKeyRef:
+     name: common:storageAccountKey
+     key: common:storageAccountKey    
+ - name: storageContainerName
+   secretKeyRef:
+     name: common:storageContainerName
+     key: common:storageContainerName        
+auth:
+ secretStore: secret-local-store

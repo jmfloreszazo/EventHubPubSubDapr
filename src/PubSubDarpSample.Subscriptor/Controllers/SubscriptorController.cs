@@ -18,12 +18,12 @@ namespace PubSubDarpSample.Subscriptor.Controllers
             _logger = logger;
         }
 
-        [HttpPost("subscriptor")]
-        [Topic("subscriptor-microservice", "mydaprdemoeventhub")]
-        public async Task<IActionResult> Subscriptor(JsonElement obj)
-        {
-            var eventPayload = obj.Deserialize<SomeObject>();
-            return new OkResult();
-        }
+        //[HttpPost("subscriptor")]
+        //[Topic("sub-microservice", "mydaprdemoeventhub")]
+        //public async Task<IActionResult> Subscriptor(JsonElement obj)
+        //{
+        //    var eventPayload = obj.Deserialize<SomeObject>();
+        //    return new OkResult();
+        //}
     }
 }
