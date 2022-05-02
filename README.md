@@ -1,4 +1,4 @@
-# Pub/Sub with Azure Event Hub
+# C# DAPR Pub/Sub with Azure Event Hub
 
 [In this links you can view the official documentation](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-eventhubs/).
 
